@@ -32,6 +32,7 @@ body {
 h1 {
   text-align: center;
   margin: 1.5rem 0;
+  padding-top: 2rem;
 }
 
 main {
@@ -84,9 +85,8 @@ label {
   margin-top: 1rem;
 }
 
-
-
-select, input,
+select,
+input,
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -142,7 +142,6 @@ footer p {
     background-color: #0f0f0f69;
   }
 }
-
 
 .fv {
   display: flex;

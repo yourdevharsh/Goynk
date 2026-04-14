@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/src/styles/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="/src/scripts/main.js" defer></script>
   </head>
 
   <body>
     <header>
-      <h1>Goynk</h1>
+      <h1 id="heading">Goynk</h1>
     </header>
     <main class="container">
       <div id="settings">
@@ -22,8 +22,15 @@
         </select>
 
         <label for="blinkTime">Choose time:</label>
-        <select name="blinkTime" id="blinkTime" class="selectBox">
-          <option value="threeSec" class="oneOption">3s</option>
+        <select
+          name="blinkTime"
+          id="blinkTime"
+          class="selectBox"
+          title="Select 'Ideal Mode' to enable this option."
+        >
+          <option value="threeSec" class="oneOption" title="Best Option">
+            3s
+          </option>
           <option value="fourSec" class="oneOption">4s</option>
           <option value="fiveSec" class="oneOption">5s</option>
         </select>
@@ -35,7 +42,7 @@
           <option value="fiveSec" class="oneOption">Simple Sound</option>
         </select>
 
-        <label for="blinkWay">Choose overlay:</label>
+        <label for="blinkSound">Choose sound:</label>
         <select name="soundStatus" id="soundStatus" class="selectBox">
           <option value="enabled" class="oneOption">Enabled</option>
           <option value="disabled" class="oneOption">Disabled</option>
