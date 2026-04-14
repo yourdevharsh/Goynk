@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Goynk</h1>
+    </header>
+    <main class="container">
+      <div id="settings">
+        <label for="blinkMode">Choose mode:</label>
+        <select name="blinkMode" id="blinkMode" class="selectBox">
+          <option value="idealMode" class="oneOption">Ideal</option>
+          <option value="healthyMode" class="oneOption">Healthy</option>
+          <option value="minimumMode" class="oneOption">Minimum</option>
+        </select>
+
+        <label for="blinkTime">Choose time:</label>
+        <select name="blinkTime" id="blinkTime" class="selectBox">
+          <option value="threeSec" class="oneOption">3s</option>
+          <option value="fourSec" class="oneOption">4s</option>
+          <option value="fiveSec" class="oneOption">5s</option>
+        </select>
+
+        <label for="blinkWay">Choose overlay:</label>
+        <select name="blinkWay" id="blinkWay" class="selectBox">
+          <option value="threeSec" class="oneOption">Black Overlay</option>
+          <option value="fourSec" class="oneOption">Text Popup</option>
+          <option value="fiveSec" class="oneOption">Simple Sound</option>
+        </select>
+
+        <label for="blinkWay">Choose overlay:</label>
+        <select name="soundStatus" id="soundStatus" class="selectBox">
+          <option value="enabled" class="oneOption">Enabled</option>
+          <option value="disabled" class="oneOption">Disabled</option>
+        </select>
+      </div>
+
+      <form class="row" id="greet-form">
+        <button type="submit">Start</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>Turn on sound</p>
+    </footer>
+  </body>
+</html>
