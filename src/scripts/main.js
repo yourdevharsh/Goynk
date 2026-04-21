@@ -5,17 +5,18 @@ import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
 import { invoke } from "@tauri-apps/api/core";
+import { show } from "@tauri-apps/api/app";
+
+import { showOverlay, showPopup, playSound } from "./util";
 
 // DOM LOAD LISTENER
 
 window.addEventListener("DOMContentLoaded", () => {
   // HTML ELEMENTS
-  const h1el = document.getElementById("heading");
-
   const blinkModeEl = document.getElementById("blinkMode");
   const blinkTimeEl = document.getElementById("blinkTime");
   const blinkWayEl = document.getElementById("blinkWay");
-  const blinkSoundEl = document.getElementById("blinkSound");
+  const blinkSoundEl = document.getElementById("soundStatus");
   const submitBtn = document.getElementById("submitBtn");
 
   // MODE SETTING
@@ -29,9 +30,18 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  blinkWayEl.addEventListener("input", () => {
+    if (blinkWayEl.value == "onlySound") {
+      blinkSoundEl.value = "soundEnabled";
+      blinkSoundEl.disabled = true;
+      blinkSoundEl.title = "You can't disable sound in this way.";
+    } else {
+      blinkSoundEl.disabled = false;
+    }
+  });
+
   // MAIN SUBMIT BUTTON LISTENER
   submitBtn.addEventListener("click", async (e) => {
-
     // FLOATING WINDOW CREATION
     const existing = await WebviewWindow.getByLabel("floater");
 
@@ -40,17 +50,20 @@ window.addEventListener("DOMContentLoaded", () => {
         url: "src/views/floater.html",
         width: 144,
         height: 56,
+        x: 1600,
+        y: 150,
         decorations: false,
         alwaysOnTop: true,
         transparent: true,
         resizable: false,
         skipTaskbar: true,
-        x: 1600,
-        y: 150
       });
 
       floater.once("tauri://created", function () {
-        console.log("Floater Created");
+        const blinkMode = blinkModeEl.value;
+        const blinkTime = blinkMode !== "idealMode" ? NaN : blinkTimeEl.value;
+        const blinkWay = blinkWayEl.value;
+        const soundStatus = blinkSoundEl.value;
       });
       floater.once("tauri://error", function (e) {
         console.log(e);
@@ -59,4 +72,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     getCurrentWindow().hide();
   });
+});
+
+
+
+
+
+document.body.addEventListener("click", () => {
+  showOverlay();
 });
