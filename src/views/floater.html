@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="/src/styles/floater.css" />
   </head>
   <body>
-    <div id="circle">
-      <div id="dragArea"></div>
-      <button id="pauseBtn">Pause</button>
-      <button id="editBtn">Edit</button>
-      <button id="closeBtn">Close</button>
+    <div id="container" data-tauri-drag-region>
+      <button id="pauseBtn">⏸</button>
+      <button id="editBtn">⚙️</button>
+      <button id="closeBtn">✕</button>
     </div>
     <script type="module" src="/src/scripts/floater.js"></script>
   </body>

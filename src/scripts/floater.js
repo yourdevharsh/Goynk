@@ -3,18 +3,21 @@ import { getCurrentWindow, getAllWindows } from "@tauri-apps/api/window";
 import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 
 // HTML ELEMENTS
-const dragAreaEl = document.getElementById('dragArea');
 const pauseBtn = document.getElementById("pauseBtn");
 const editBtn = document.getElementById("editBtn");
 const closeBtn = document.getElementById("closeBtn");
 
 // WINDOWS SELECTION
-const floaterWindow = await getCurrentWindow();
+const floaterWindow = getCurrentWindow();
 
-dragAreaEl.addEventListener("mousedown", async (e) => {
-  if (e.buttons === 1) {
-    await floaterWindow.startDragging();
+// PAUSE LISTENER
+pauseBtn.addEventListener('click', () => {
+  if (pauseBtn.textContent === '⏸') {
+    pauseBtn.textContent = '▶';
+  } else {
+    pauseBtn.textContent = '⏸';
   }
+
 });
 
 // EDIT LISTENER

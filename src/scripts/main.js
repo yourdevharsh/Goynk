@@ -38,13 +38,15 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!existing) {
       const floater = new WebviewWindow("floater", {
         url: "src/views/floater.html",
-        width: 60,
-        height: 60,
+        width: 144,
+        height: 56,
         decorations: false,
         alwaysOnTop: true,
         transparent: true,
         resizable: false,
         skipTaskbar: true,
+        x: 1600,
+        y: 150
       });
 
       floater.once("tauri://created", function () {
