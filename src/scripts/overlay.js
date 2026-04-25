@@ -4,7 +4,7 @@ import { showOverlay } from "./util";
 window.addEventListener('DOMContentLoaded', async () => {
   const overlayWin = getCurrentWindow();
 
-  await overlayWin.setFullscreen(true);
-
-  showOverlay(true);
+  setTimeout(async () => {
+    await overlayWin.setFullscreen(true);
+  }, 500);
 });

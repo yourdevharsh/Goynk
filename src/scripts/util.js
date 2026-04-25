@@ -5,6 +5,8 @@ export function showOverlay(isSoundEnabled = false) {
     url: "src/views/overlay.html",
     width: 1,
     height: 1,
+    x: 1,
+    y: 1,
     alwaysOnTop: true,
     resizable: false,
     decorations: false,
@@ -12,12 +14,12 @@ export function showOverlay(isSoundEnabled = false) {
     transparent: false,
   });
   overlay.once("tauri://created", function () {
-    setTimeout(() => {
-      if (isSoundEnabled) {
+    if (isSoundEnabled) {
         playSound();
       }
+    setTimeout(() => {
       overlay.close();
-    }, 1500);
+    }, 2000);
   });
 }
 
@@ -26,8 +28,8 @@ export function showPopup(isSoundEnabled = false) {
     url: "src/views/popup.html",
     width: 1,
     height: 1,
-    x: 0,
-    y: 0,
+    x: 1,
+    y: 1,
     alwaysOnTop: true,
     resizable: false,
     decorations: false,
@@ -48,4 +50,15 @@ export function playSound() {
   const mySound = new Audio("src/assets/blinkSound.mp3");
 
   mySound.play();
+}
+
+export function startBlinking(blinkMode, blinkTime, blinkWay, soundStatus) {
+  switch (key) {
+    case value:
+      
+      break;
+  
+    default:
+      break;
+  }
 }

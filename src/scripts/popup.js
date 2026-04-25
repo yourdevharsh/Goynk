@@ -3,5 +3,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 window.addEventListener('DOMContentLoaded', async () => {
   const popupWin = getCurrentWindow();
 
-  await popupWin.setFullscreen(true);
+  setTimeout(async () => {
+    await popupWin.setFullscreen(true);
+  }, 500);
 });

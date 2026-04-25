@@ -63,7 +63,9 @@ window.addEventListener("DOMContentLoaded", () => {
         const blinkMode = blinkModeEl.value;
         const blinkTime = blinkMode !== "idealMode" ? NaN : blinkTimeEl.value;
         const blinkWay = blinkWayEl.value;
-        const soundStatus = blinkSoundEl.value;
+        const soundStatus = blinkWay == "onlySound" ? "soundEnabled" : "soundDisabled";
+
+        startBlinking(blinkMode, blinkTime, blinkWay, soundStatus);
       });
       floater.once("tauri://error", function (e) {
         console.log(e);
@@ -72,12 +74,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
     getCurrentWindow().hide();
   });
-});
-
-
-
-
-
-document.body.addEventListener("click", () => {
-  showOverlay();
 });
