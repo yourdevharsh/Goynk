@@ -1,7 +1,7 @@
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const popupWin = getCurrentWindow();
+  const blackWin = getCurrentWindow();
 
-  popupWin.show();
+  blackWin.show();
 });

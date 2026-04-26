@@ -7,7 +7,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { invoke } from "@tauri-apps/api/core";
 import { show } from "@tauri-apps/api/app";
 
-import { showOverlay, showPopup, playSound } from "./util";
+import { showBlack, showPopup, playSound } from "./util";
 
 // DOM LOAD LISTENER
 
