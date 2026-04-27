@@ -51,9 +51,7 @@ export function playSound() {
 export function startBlinking(blinkMode, blinkTime, blinkWay, soundStatus) {
   switch (blinkMode) {
     case "idealMode":
-      setInterval(() => {
-        showOverlay(blinkWay, soundStatus);
-      }, getBlinkTime(blinkTime)*1000);
+      startBlinker(blinkMode, blinkTime, blinkWay, soundStatus);
       break;
   
     default:
@@ -104,4 +102,8 @@ function getSoundStatus(soundStatus) {
     return true;
   }
   return false;
+}
+
+function startBlinker(params) {
+  
 }
